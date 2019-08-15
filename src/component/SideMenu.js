@@ -199,7 +199,7 @@ const styles = {
 var menuItems = [
   {
     id: 1,
-    title: 'MEN',
+    title: 'BEST COLLECTION',
     subMenu: [
       {
         id: 5,
@@ -233,7 +233,7 @@ var menuItems = [
   },
   {
     id: 2,
-    title: 'WOMEN',
+    title: 'WOMEN CLOTHS',
     subMenu: [
       {
         id: 12,
@@ -267,10 +267,6 @@ var menuItems = [
   },
   {
     id: 3,
-    title: 'KIDS'
-  },
-  {
-    id: 4,
     title: 'ACCESORIES'
   }
 ];

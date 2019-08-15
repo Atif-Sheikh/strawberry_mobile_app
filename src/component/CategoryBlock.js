@@ -76,7 +76,7 @@ const styles = {
     borderColor: 'rgba(253, 253, 253, 0.2)'
   },
   image: {
-    height: 200,
+    height: 260,
     width: null,
     flex: 1
   }

@@ -30,13 +30,14 @@ export default class Product extends Component {
 
   componentWillMount() {
     //get the product with id of this.props.product.id from your server
-    this.setState({ product: dummyProduct });
+    dummyProduct.images.unshift(this.props.navigation.state.params.product.imageUri)
+    this.setState({ product: this.props.navigation.state.params.product });
   }
 
   componentDidMount() {
     /* Select the default color and size (first ones) */
-    let defColor = this.state.product.colors[0];
-    let defSize = this.state.product.sizes[0];
+    let defColor = dummyProduct.colors[0];
+    let defSize = dummyProduct.sizes[0];
     this.setState({
       selectedColor: defColor,
       selectedSize: defSize
@@ -63,14 +64,14 @@ export default class Product extends Component {
     );
     return (
       <Container style={{ backgroundColor: '#fdfdfd' }}>
-        <Navbar left={left} right={right} title={this.props.product.title} />
+        <Navbar left={left} right={right} title={this.state.product.title} />
         <Content>
 
 
 
 
           <Carousel
-            data={this.state.product.images}
+            data={dummyProduct.images}
             renderItem={this._renderItem}
             ref={(carousel) => { this._carousel = carousel; }}
             sliderWidth={Dimensions.get('window').width}
@@ -79,7 +80,7 @@ export default class Product extends Component {
             enableSnap={true}
           />
           <Pagination
-            dotsLength={this.state.product.images.length}
+            dotsLength={dummyProduct.images.length}
             activeDotIndex={this.state.activeSlide}
             containerStyle={{ backgroundColor: 'transparent', paddingTop: 0, paddingBottom: 0, marginTop: -15 }}
             dotStyle={{
@@ -173,15 +174,15 @@ export default class Product extends Component {
               <Text style={{ marginBottom: 5 }}>Description</Text>
               <View style={{ width: 50, height: 1, backgroundColor: 'rgba(44, 62, 80, 0.5)', marginLeft: 7, marginBottom: 10 }} />
               <NBText note>
-                {this.state.product.description}
+                {dummyProduct.description}
               </NBText>
             </View>
           </View>
-          <View style={{ marginTop: 15, paddingLeft: 12, paddingRight: 12 }}>
+          {/* <View style={{ marginTop: 15, paddingLeft: 12, paddingRight: 12 }}>
             <Text style={{ marginBottom: 5 }}>Similar items</Text>
             <View style={{ width: 50, height: 1, backgroundColor: 'rgba(44, 62, 80, 0.5)', marginLeft: 7, marginBottom: 10 }} />
             {this.renderSimilairs()}
-          </View>
+          </View> */}
         </Content>
       </Container>
     );
@@ -204,7 +205,7 @@ export default class Product extends Component {
 
   renderColors() {
     let colors = [];
-    this.state.product.colors.map((color, i) => {
+    dummyProduct.colors.map((color, i) => {
       colors.push(
         <Item key={i} label={color} value={color} />
       );
@@ -214,7 +215,7 @@ export default class Product extends Component {
 
   renderSize() {
     let size = [];
-    this.state.product.sizes.map((s, i) => {
+    dummyProduct.sizes.map((s, i) => {
       size.push(
         <Item key={i} label={s} value={s} />
       );
@@ -224,7 +225,7 @@ export default class Product extends Component {
 
   renderSimilairs() {
     let items = [];
-    let stateItems = this.state.product.similarItems;
+    let stateItems = dummyProduct.similarItems;
     for (var i = 0; i < stateItems.length; i += 2) {
       if (stateItems[i + 1]) {
         items.push(
@@ -247,7 +248,7 @@ export default class Product extends Component {
   }
 
   openGallery = (pos) => {
-    Actions.imageGallery({ images: this.state.product.images, position: pos });
+    Actions.imageGallery({ images: dummyProduct.images, position: pos });
   }
 
   addToCart() {

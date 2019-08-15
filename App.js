@@ -16,6 +16,18 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import * as firebase from 'firebase';
+
+
+var config = {
+    apiKey: "AIzaSyAUQF6YYuVuT1jdhwdVFmwCIthOG0f2io4",
+    authDomain: "campusrecuirtment.firebaseapp.com",
+    databaseURL: "https://strawberry-eca3e.firebaseio.com/",
+    projectId: "strawberry-eca3e",
+    storageBucket: "campusrecuirtment.appspot.com",
+    messagingSenderId: "874600307382"
+};
+firebase.initializeApp(config);
 
 const App = () => {
   return (

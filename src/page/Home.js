@@ -62,22 +62,17 @@ export default class Home extends Component {
 var categories = [
   {
     id: 1,
-    title: 'MEN',
-    image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_489/v1500284127/pexels-photo-497848_yenhuf.jpg'
+    title: 'Best Collection',
+    image: 'http://res.cloudinary.com/atif786/image/upload/v1565382743/party_q31wbc.jpg'
   },
   {
     id: 2,
-    title: 'WOMEN',
+    title: 'WOMEN Cloths',
     image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_460/v1500284237/pexels-photo-324030_wakzz4.jpg'
   },
   {
     id: 3,
-    title: 'KIDS',
-    image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_445/v1500284286/child-childrens-baby-children-s_shcevh.jpg'
-  },
-  {
-    id: 4,
-    title: 'ACCESORIES',
+    title: 'Accessories',
     image: 'http://res.cloudinary.com/atf19/image/upload/c_scale,w_467/v1500284346/pexels-photo-293229_qxnjtd.jpg'
   }
 ];
